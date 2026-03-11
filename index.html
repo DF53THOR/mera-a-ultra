@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mera AI | Donanım Terminali</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="logo-wrapper">
+                    <div class="m-icon-static">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M15,85 L35,15 L50,65 L65,15 L85,85" fill="none" stroke="var(--primary)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <span class="brand-name">Mera AI</span>
+                </div>
+                
+                <button class="nav-btn primary" onclick="location.reload()">
+                    <i class="fas fa-plus"></i><span class="nav-text">Yeni Analiz</span>
+                </button>
+                <button class="nav-btn" id="lib-btn">
+                    <i class="fas fa-microchip"></i><span class="nav-text">Donanım Arşivi</span>
+                </button>
+            </div>
+            <div class="sidebar-bottom">
+                <button class="nav-btn" onclick="changeName()">
+                    <i class="fas fa-user-tag"></i><span class="nav-text">Ad Seç</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Terminal Aktif</span>
+                </div>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="icon-btn" title="Gece/Gündüz Modu"><i class="fas fa-moon"></i></button>
+                    <div class="user-badge">
+                        <span id="user-name-display">...</span>
+                        <div class="avatar" id="user-avatar">?</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="chat-window" id="scroll-target">
+                <div class="chat-wrapper">
+                    <section id="greet" class="welcome-screen">
+                        </section>
+                    <div id="chat" class="chat-container"></div>
+                </div>
+            </div>
+
+            <footer class="input-container">
+                <div class="input-wrapper">
+                    <button id="mic-btn" class="icon-btn mic-btn" title="Sesle Yazdır"><i class="fas fa-microphone"></i></button>
+                    <textarea id="main-input" placeholder="Donanım modelini yaz veya analiz başlat..." rows="1"></textarea>
+                    <button class="send-btn" id="send-btn"><i class="fas fa-bolt"></i></button>
+                </div>
+                <p class="input-hint">Mera AI hatalar yapabilir. Donanım verilerini doğrulamayı unutmayın.</p>
+            </footer>
+        </main>
+    </div>
+
+    <div id="lib-panel" class="library-panel">
+        <div class="lib-header">
+            <h3>Donanım Arşivi</h3>
+            <button id="close-lib" class="close-btn">&times;</button>
+        </div>
+        <div id="lib-content" class="lib-list">
+            <p style="padding: 20px; color: var(--text-sub);">Henüz bir analiz kaydedilmedi.</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
